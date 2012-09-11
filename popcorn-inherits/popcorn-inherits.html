@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PopcornJS Event Inheritance Prototype</title>
+    <script src="lib/jquery-1.7.2.min.js"></script>
+    <script src="lib/popcorn-complete.js"></script>
+    <script src="lib/popcorn.transcript.js"></script>
+    <script src="popcorn-inherits.js"></script>
+
+    <style type="text/css">
+        #video {
+            width: 400px;
+        }
+
+        #code {
+            font-family: monospace;
+            white-space: pre;
+            font-size: 10px;
+            position: absolute;;
+            left: 410px;
+            top: 50px;
+        }
+
+        #tx {
+            margin: 10px 0;
+            border: 1px solid #f0f0f0;
+            width: 400px;
+            max-height: 200px;
+            overflow: auto;
+        }
+
+        .tx-line {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 2px 4px 2px 3px;
+            cursor: pointer;
+            color: gray;
+        }
+        .tx-line:hover {
+            background: rgba(255, 255, 0, 0.2);
+            color: black;
+        }
+        .tx-line.active  {
+            background: rgba(255, 255, 0, 0.7);
+        }
+        .tx-line.active .tx-text {
+            color: black;
+        }
+        .tx-line.last {
+            background: rgba(255, 255, 0, 0.7);
+        }
+
+    </style>
+</head>
+
+<body>
+
+<h2>PopcornJS Event Inheritance Prototype</h2>
+
+
+<video id='video' muted controls poster="elephants_dream/elephant.png">
+    <source id='mp4' src="http://archive.org/download/ElephantsDream/ed_1024_512kb.mp4" type='video/mp4'>
+    <source id='ogv' src="http://archive.org/download/ElephantsDream/ed_1024.ogv" type='video/ogg'>
+</video>
+
+<div id="code"></div>
+
+<div id="tx"></div>
+
+<script id="src">
+    var popcorn = Popcorn("video");
+
+    // inherit events from one or more plugins using popcorn's defaults()
+    popcorn.defaults("transcript", {
+        inherits : "not_implemented, subtitle",
+        target : "#tx"
+    });
+
+    // allows for inheriting from abstract plugins:
+    popcorn.subtitle({
+        start: 0,
+        end:3,
+        text: "subtitle events are inherited"
+    });
+
+    // normal use case allows for additional, child-only events
+    popcorn.transcript({
+        start: 3,
+        end:5,
+        text: "popcorn.transcript() still works"
+    });
+
+    // allows for inheriting from abstract plugins:
+    popcorn.not_implemented({
+        start: 5,
+        end:8,
+        text: "abstract plugin support"
+    });
+
+    // particularly useful for parsers which don't let us specify import names
+    popcorn.parseSRT("elephants_dream/elephant.english.srt");
+</script>
+
+
+<script>
+    $('#code').text( $('#src').text() )
+</script>
+</body>
+</html>
+
+
