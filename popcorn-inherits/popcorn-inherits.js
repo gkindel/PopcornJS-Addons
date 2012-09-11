@@ -34,7 +34,6 @@
         var subject;
         while( plugins.length ){
             subject = plugins.shift();
-            console.log("attach", subject, subject)
             register(subject);
             map[subject].push(Popcorn.prototype[observer]);
         }

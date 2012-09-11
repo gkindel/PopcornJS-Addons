@@ -43,7 +43,6 @@ Popcorn.plugin("transcript", {
 
         var scroll =  options.el.position().top - (t.height() * .5);
 
-        console.log("scroll?", scroll   );
         t.stop().animate({ 'scrollTop' :  scroll }, 1500);
 
         $(options.target).find(".last").removeClass("last");
