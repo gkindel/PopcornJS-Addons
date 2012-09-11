@@ -25,7 +25,7 @@
             margin: 10px 0;
             border: 1px solid #f0f0f0;
             width: 400px;
-            max-height: 200px;
+            max-height:175px;
             overflow: auto;
         }
 
@@ -75,7 +75,7 @@
         target : "#tx"
     });
 
-    // allows for inheriting from abstract plugins:
+    // allows for inheriting subtitle events
     popcorn.subtitle({
         start: 0,
         end:3,
@@ -98,6 +98,9 @@
 
     // particularly useful for parsers which don't let us specify import names
     popcorn.parseSRT("elephants_dream/elephant.english.srt");
+
+    $('video').get(0).load();
+
 </script>
 
 

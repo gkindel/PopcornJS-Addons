@@ -38,12 +38,10 @@ Popcorn.plugin("transcript", {
 
     start : function (event,options) {
         options.el.addClass("active");
-        var body = $(options.target).children(0);
         var t = $(options.target);
+        var scroll =  options.el.position().top - ( t.height() - options.el.height() ) * .5;
+        t.stop().animate({ 'scrollTop' :  scroll }, 750);
 
-        var scroll =  options.el.position().top - (t.height() * .5);
-
-        t.stop().animate({ 'scrollTop' :  scroll }, 1500);
 
         $(options.target).find(".last").removeClass("last");
     },
