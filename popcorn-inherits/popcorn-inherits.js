@@ -1,4 +1,69 @@
+/**
 
+ Popcorn Inherits
+
+ - A PopcornJS mod which allows for a observing plugin to receive events from another, possibly
+ unimplemented, plugin.
+
+ Copyright (c) 2012 RAMP Holdings, Inc.
+
+ Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ Example use:
+    <script src="lib/popcorn-complete.js"></script>
+    <script src="lib/popcorn.transcript.js"></script>
+    <script src="popcorn-inherits.js"></script>
+
+     <video id='video' muted controls poster="elephants_dream/elephant.png">
+        <source id='mp4' src="http://archive.org/download/ElephantsDream/ed_1024_512kb.mp4" type='video/mp4'>
+        <source id='ogv' src="http://archive.org/download/ElephantsDream/ed_1024.ogv" type='video/ogg'>
+     </video>
+
+    <script>
+    var popcorn = Popcorn("video");
+
+    // inherit events from one or more plugins using popcorn's defaults()
+    popcorn.defaults("transcript", {
+        inherits : "not_implemented, subtitle",
+        target : "#tx"
+    });
+
+    // allows for inheriting subtitle events
+    popcorn.subtitle({
+        start: 0,
+        end:3,
+        text: "subtitle events are inherited"
+    });
+
+    // normal use case allows for additional, child-only events
+    popcorn.transcript({
+        start: 3,
+        end:5,
+        text: "popcorn.transcript() still works"
+    });
+
+    // allows for inheriting from abstract plugins:
+    popcorn.not_implemented({
+        start: 5,
+        end:8,
+        text: "abstract plugin support"
+    });
+
+    // particularly useful for parsers which don't let us specify import names
+    popcorn.parseSRT("elephants_dream/elephant.english.srt");
+
+    </script>
+ */
 
 (function () {
     /**
