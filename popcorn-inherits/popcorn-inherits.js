@@ -1,9 +1,8 @@
 /**
-
  Popcorn Inherits
 
- - A PopcornJS mod which allows for a observing plugin to receive events from another, possibly
- unimplemented, plugin.
+ - A PopcornJS mod which allows for an observing plugin to receive events from another, possibly
+ unimplemented, plugin.  Live example: http://jsfiddle.net/gkindel/s2Q6N/
 
  Copyright (c) 2012 RAMP Holdings, Inc.
 
@@ -19,7 +18,7 @@
  The above copyright notice and this permission notice shall be included in
  all copies or substantial portions of the Software.
 
- Example use:
+  Example use:
     <script src="lib/popcorn-complete.js"></script>
     <script src="lib/popcorn.transcript.js"></script>
     <script src="popcorn-inherits.js"></script>
@@ -86,10 +85,9 @@
             orig.call(this, id, options);
 
         var opt =  options || id;
-        delete opt.id;
+        delete opt.id; // strip ids, they're unique would clobber the original
 
         for( var i = 0; i <  plugins.length; i++ ){
-            // strip ids, they're unique would clobber the original
             plugins[i].call(this, opt );
         }
     }
@@ -130,7 +128,6 @@
     };
 
     // explicit support
-
     Popcorn.inherits = function (child, parents) {
         attach(parents, child);
     }
