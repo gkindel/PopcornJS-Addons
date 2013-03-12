@@ -1,0 +1,56 @@
+<Response>
+    <Matches>
+        <Match>
+            <Actions>
+                <Action>
+                    <Attributes>
+                        <Attribute>
+                            <Name>text</Name>
+                            <Value>1st metaq</Value>
+                        </Attribute>
+                    </Attributes>
+                    <Type>metaq</Type>
+                </Action>
+            </Actions>
+            <Occurence>
+                <StartTime>5.00</StartTime>
+                <EndTime>7.001</EndTime>
+            </Occurence>
+        </Match>
+        <Match>
+            <Actions>
+                <Action>
+                    <Attributes>
+                        <Attribute>
+                            <Name>text</Name>
+                            <Value>2nd metaq</Value>
+                        </Attribute>
+                    </Attributes>
+                    <Type>metaq</Type>
+                </Action>
+            </Actions>
+            <Occurence>
+                <StartTime>10.0</StartTime>
+                <EndTime>12.0000001</EndTime>
+            </Occurence>
+        </Match>
+        <Match>
+            <Actions>
+                <Action>
+                    <Attributes>
+                        <Attribute>
+                            <Name>text</Name>
+                            <Value>3nd metaq</Value>
+                        </Attribute>
+                    </Attributes>
+                    <Type>metaq</Type>
+                </Action>
+            </Actions>
+            <Occurence>
+                <StartTime>15.0</StartTime>
+                <EndTime>17.0000001</EndTime>
+            </Occurence>
+        </Match>
+    </Matches>
+</Response>
+

@@ -1,0 +1,27 @@
+#tx {
+    margin: 10px 0;
+    border: 1px solid #f0f0f0;
+    width: 400px;
+    max-height:175px;
+    overflow: auto;
+}
+
+.tx-line {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 2px 4px 2px 3px;
+    cursor: pointer;
+    color: gray;
+}
+.tx-line:hover {
+    background: rgba(255, 255, 0, 0.2);
+    color: black;
+}
+.tx-line.active  {
+    background: rgba(255, 255, 0, 0.7);
+}
+.tx-line.active .tx-text {
+    color: black;
+}
+.tx-line.last {
+    background: rgba(255, 255, 0, 0.7);
+}

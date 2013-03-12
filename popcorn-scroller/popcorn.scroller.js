@@ -16,7 +16,7 @@
      });
  */
 
-Popcorn.plugin("transcript", {
+Popcorn.plugin("scroller", {
     _setup: function(options) {
 
         // create body so we know our items's y offset
