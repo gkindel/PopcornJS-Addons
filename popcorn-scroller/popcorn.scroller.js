@@ -1,18 +1,18 @@
 
 
 /*
- an example transcript plugin for popcorn.js
+ an example scrolling text plugin for popcorn.js
 
  requires: jquery, popcorn.js
  author: @gkindel
  license: MIT
 
  use:
-     popcorn.transcript({
+     popcorn.scroller({
         target : "#myTranscript"
         start: 0,
         end:5,
-        text: "A transcript sentence."
+        text: "A scroller sentence."
      });
  */
 
