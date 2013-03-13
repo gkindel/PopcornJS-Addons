@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PopcornJS Timeline Prototype</title>
+    <script src="../external/jquery-1.7.2.min.js"></script>
+    <script src="../external/popcorn-complete.js"></script>
+    <script src="../popcorn-inherits/popcorn-inherits.js"></script>
+
+    <script src="../popcorn-timeline/popcorn-timeline.js"></script>
+    <link href="../popcorn-timeline/popcorn-timeline.css" rel="stylesheet" type="text/css">
+
+
+
+    <style type="text/css">
+        #video {
+            width: 400px;
+        }
+
+        #code {
+            font-family: monospace;
+            white-space: pre;
+            font-size: 10px;
+            margin-top: 100px;
+        }
+
+        #tl {
+            position: absolute;;
+            left: 500px;
+            top: 50px;
+            width: 300px;
+            height: 600px;
+        }
+        .tl{
+            height: 100%
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>PopcornJS Timeline Prototype</h2>
+
+
+<video id='video'
+       controls preload='none'
+       poster="../media/elephants_dream/elephant.png">
+    <source id='mp4'
+            src="../media/elephants_dream/elephant.mp4"
+            type='video/mp4'>
+    <source id='ogv'
+            src="../media/elephants_dream/elephant.ogv"
+            type='video/ogg'>
+    <p>Your user agent does not support the HTML5 Video element.</p>
+</video>
+
+<div id="code"></div>
+
+<div id="tl"></div>
+
+<script id="src">
+    var popcorn = Popcorn("video");
+
+    // inherit events from one or more plugins using popcorn's defaults()
+
+    popcorn.defaults("timeline", {
+        inherits : "subtitle",
+        target : "#tl"
+    });
+
+    popcorn.timeline({
+        start: 5,
+        end : 10
+    });
+
+    // particularly useful for parsers which don't let us specify import names
+    popcorn.parseSRT("../media/elephants_dream/elephant.english.srt");
+
+    $('video').get(0).load();
+
+</script>
+
+
+<script>
+    $('#code').text( $('#src').text() )
+</script>
+</body>
+</html>
+
+
