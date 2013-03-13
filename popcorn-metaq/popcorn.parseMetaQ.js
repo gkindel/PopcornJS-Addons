@@ -48,10 +48,10 @@
         var attributes = xmlNameValues( xmlChildren(matchXml, "Actions.Action.Attributes.Attribute") );
 
         attributes.start = parseFloat(
-            xmlText(matchXml, "Actions.Action.StartTime") || xmlText(matchXml, "Occurence.StartTime")
+            xmlText(matchXml, "Actions.Action.StartTime") || xmlText(matchXml, "Occurrence.StartTime")
         );
         attributes.end = parseFloat(
-            xmlText(matchXml, "Actions.Action.EndTime") || xmlText(matchXml, "Occurence.EndTime")
+            xmlText(matchXml, "Actions.Action.EndTime") || xmlText(matchXml, "Occurrence.EndTime")
         );
 
         var ret = {};

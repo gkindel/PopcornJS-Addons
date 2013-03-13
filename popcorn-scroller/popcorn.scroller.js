@@ -27,7 +27,8 @@ Popcorn.plugin("scroller", {
                 .appendTo(options.target);
 
         var self = this;
-        var text = options.text.replace(/<br\s*\/?>/ig, " ");
+        var text = options.text || options.term;
+        text.replace(/<br\s*\/?>/ig, " ");
         options.el = $("<div/>")
             .addClass("tx-line")
             .append( $("<span/>").addClass("tx-time").text( Math.round(options.start) + "s :: ") )
