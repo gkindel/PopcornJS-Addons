@@ -70,6 +70,7 @@
      * @description (proof of concept, ie. hack)
      * @author gkindel@ramp.com
      * @author @gkindel
+     * @example http://jsfiddle.net/gkindel/s2Q6N/
      */
 
     var map = {};
